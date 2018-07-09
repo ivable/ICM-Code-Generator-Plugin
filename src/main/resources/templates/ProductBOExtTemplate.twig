@@ -1,0 +1,10 @@
+package {{ package }};
+
+import com.intershop.beehive.businessobject.capi.BusinessObjectExtension;
+import {{ bopackage }}.{{ bo }};
+
+public interface {{ extName }} extends BusinessObjectExtension<{{ bo }}>
+{
+	public static final String EXTENSION_ID = "{{ extName }}";
+	
+}

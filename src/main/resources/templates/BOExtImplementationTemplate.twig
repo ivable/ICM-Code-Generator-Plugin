@@ -1,0 +1,14 @@
+package {{ package }};
+
+import com.intershop.beehive.businessobject.capi.AbstractBusinessObjectExtension;
+import {{ bopackage }}.{{ bo }};
+import {{ boextinterfacepackage }}.{{ boextinterface }};
+
+public class {{ boextimpl }} extends AbstractBusinessObjectExtension<{{ bo }}> implements {{ boextinterface }}
+{
+
+    public {{ boextimpl }}(String extensionID, {{ bo }} extendedObject)
+    {
+        super(extensionID, extendedObject);
+    }
+}

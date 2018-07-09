@@ -1,0 +1,38 @@
+plugins {
+    // Apply the java-library plugin to add support for Java Library
+    id 'java-library'
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+}
+
+gradlePlugin {
+  plugins {
+    CodeGeneratorPlugin {
+      id = 'icm-code-generator'
+      implementationClass = 'com.we.intershop.gradleplugin.CodeGeneratorPlugin'
+    }
+  }
+}
+
+group = 'com.we.intershop.gradleplugin'
+version = '1.0'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+        	artifactId 'icm-code-generator'
+        	group = 'com.we.intershop.gradleplugin'
+			version = '1.0'
+            from components.java
+        }
+    }
+}
+
+dependencies {	
+    testImplementation 'junit:junit:4.12'
+    implementation "org.jtwig:jtwig-core:5.87.0.RELEASE"
+}
+
+repositories {
+    jcenter()
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<components xmlns="http://www.intershop.de/component/2010">
+	<!-- declare {{factoryClass}} implemention -->
+	<implementation name="{{factoryPackages}}.{{factoryClass}}" implements="BusinessObjectExtensionFactory" class="{{factoryPackages}}.{{factoryClass}}">
+	</implementation>
+	
+	<!-- register {{factoryClass}} -->
+	<fulfill requirement="extensionFactory" of="com.intershop.beehive.core.capi.businessobject.BusinessObjectExtensionFactories">               
+		<instance with="{{factoryPackages}}.{{factoryClass}}"/>
+	</fulfill>
+</components>

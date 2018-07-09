@@ -1,0 +1,21 @@
+package {{ package }};
+
+import com.intershop.beehive.businessobject.capi.AbstractBusinessObjectExtensionFactory;
+import com.intershop.beehive.businessobject.capi.BusinessObjectExtension;
+import {{ bopackage }}.{{ bo }};
+import {{ boextinterfacepackage }}.{{ boextinterface }};
+
+public class {{ boextfactory }} extends AbstractBusinessObjectExtensionFactory<{{ bo }}>
+{
+    @Override
+    public BusinessObjectExtension<{{ bo }}> createExtension({{ bo }} object)
+    {
+        return new {{ boextimpl }}({{ boextinterface }}.EXTENSION_ID, object);
+    }
+
+    @Override
+    public Class<{{ bo }}> getExtendedType()
+    {
+        return {{ bo }}.class;
+    }
+}
