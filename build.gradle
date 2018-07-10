@@ -2,37 +2,51 @@ plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
     id 'java-gradle-plugin'
+    
     id 'maven-publish'
-}
-
-gradlePlugin {
-  plugins {
-    CodeGeneratorPlugin {
-      id = 'icm-code-generator'
-      implementationClass = 'com.we.intershop.gradleplugin.CodeGeneratorPlugin'
-    }
-  }
-}
-
-group = 'com.we.intershop.gradleplugin'
-version = '1.0'
-
-publishing {
-    publications {
-        maven(MavenPublication) {
-        	artifactId 'icm-code-generator'
-        	group = 'com.we.intershop.gradleplugin'
-			version = '1.0'
-            from components.java
-        }
-    }
-}
-
-dependencies {	
-    testImplementation 'junit:junit:4.12'
-    implementation "org.jtwig:jtwig-core:5.87.0.RELEASE"
+    
+    id 'com.gradle.plugin-publish' version '0.9.10'
 }
 
 repositories {
     jcenter()
+}
+
+dependencies {	
+    testImplementation 'junit:junit:4.12'
+    testImplementation gradleTestKit()
+    implementation "org.jtwig:jtwig-core:5.87.0.RELEASE"
+}
+
+project.description     = 'Intershop code generator plugin'
+project.group           = 'com.we.intershop.gradleplugin'
+project.version         = '1.0'
+
+project.ext.name        = 'icm-code-generator'
+project.ext.pluginId    = 'com.we.intershop.gradleplugin.icm-code-generator'
+project.ext.scm         = 'https://github.com/willemevertse/ICM-Code-Generator-Plugin'
+project.ext.url         = 'https://github.com/willemevertse/ICM-Code-Generator-Plugin'
+
+// Configuration for: java-gradle-plugin
+gradlePlugin {
+    plugins {
+        CodeGeneratorPlugin {
+            id = project.pluginId
+            implementationClass = 'com.we.intershop.gradleplugin.CodeGeneratorPlugin'
+        }
+    }
+}
+
+pluginBundle {
+    website = project.url
+    vcsUrl = project.scm
+    tags = ['intershop', 'code-generator', 'business objects']
+
+    plugins {
+        CodeGeneratorPlugin {
+            displayName = 'Intershop code generator plugin'
+            description = project.description
+            id          = project.pluginId
+        }
+    }
 }

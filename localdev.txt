@@ -1,0 +1,11 @@
+ buildscript {
+  repositories {
+    mavenLocal()
+  }
+  
+  dependencies {
+    classpath 'com.we.intershop.gradleplugin:icm-code-generator:1.0'
+  }
+}
+
+apply plugin: 'com.we.intershop.gradleplugin.icm-code-generator'
