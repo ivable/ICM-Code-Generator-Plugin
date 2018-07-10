@@ -11,25 +11,32 @@ plugins {
 ```
 
 ### Business Object Extension
+#### Prerequisite
+- Cartridge must have the capi and internal package structure
+- Cartridge must have the java plugin enabled
+
 To see the help message, run
 ```
+# navigate to the cartridge with the plugin enabled
 ../gradlew createboext
 ```
 Example:
 Generate a ProductBO extension
 ```
-# navigate to the cartridge with plugin
+# navigate to the cartridge with the plugin enabled
 ../gradlew createboext -Pextname=SomeExt -Ptype=1
 ```
 Supported Business Object extensions
  - 1 - ProductBO
  - 2 - CatalogCategoryBO
+ - 3 - BasketBO
+ - 4 - OrderBO
 
 ## Authors
 
-* **Willem Evertse @ [INCENTRO](https://www.incentro.com)**
+* **Willem Evertse @ [Incentro](https://www.incentro.com)**
 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for detailss
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details

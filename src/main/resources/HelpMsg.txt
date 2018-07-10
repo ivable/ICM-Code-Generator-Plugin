@@ -14,3 +14,5 @@ _  /_/ // /_/ /     _  /___  __>  < / /_ /  __/  / / /(__  )_  / / /_/ /  / / / 
                Options:
                   1 : ProductBO (default)
                   2 : CatalogCategoryBO
+                  3 : BasketBO
+                  4 : OrderBO

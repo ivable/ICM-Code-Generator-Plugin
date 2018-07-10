@@ -71,6 +71,10 @@ public class BOExtensionTask extends DefaultTask {
 			return ExtTypes.PRODUCTBO;
 		case "2":
 			return ExtTypes.CATALOGCATEGORYBO;
+		case "3":
+			return ExtTypes.BASKETBO;
+		case "4":
+			return ExtTypes.ORDERBO;
 		default:
 			throw new IllegalArgumentException("Unknown extension type " + type);
 		}
