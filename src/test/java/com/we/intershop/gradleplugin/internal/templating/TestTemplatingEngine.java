@@ -6,6 +6,8 @@ import static org.junit.Assert.assertThat;
 import org.junit.Test;
 
 import com.we.intershop.gradleplugin.internal.BOExtensionConstants.ExtTypes;
+import com.we.intershop.gradleplugin.internal.BOExtensionFactory;
+import com.we.intershop.gradleplugin.internal.IntershopArtifacts;
 import com.we.intershop.gradleplugin.internal.templating.TemplatingEngine;
 
 public class TestTemplatingEngine {
@@ -75,7 +77,35 @@ public class TestTemplatingEngine {
 		assertThat(impl, containsString("public class TestProductBOExImpl extends AbstractBusinessObjectExtension<ProductBO> implements TestProductBOEx"));
 		
 		assertThat(impl, containsString("package com.test.internal;"));
+	}
+	
+	@Test
+	public void testBasketBOExt(){
+		IntershopArtifacts a = BOExtensionFactory.createSources(ExtTypes.BASKETBO, "BlaBasketExt", "com.intershop.capi", "com.intershop.internal");
+
+		assertThat(a.getInterfaceData(), containsString("import com.intershop.component.basket.capi.BasketBO;"));
 		
-		System.out.println(impl);
+		assertThat(a.getImplementationData(), containsString("import com.intershop.component.basket.capi.BasketBO;"));
+		
+		assertThat(a.getImplementationData(), containsString("public class BlaBasketExtImpl extends AbstractBusinessObjectExtension<BasketBO> implements BlaBasketExt"));
+		
+		assertThat(a.getFactoryData(), containsString("public class BlaBasketExtFactory extends AbstractBusinessObjectExtensionFactory<BasketBO>"));
+		
+		assertThat(a.getComponentData(), containsString("<instance with=\"com.intershop.internal.BlaBasketExtFactory\"/>"));
+	}
+	
+	@Test
+	public void testOrderBOExt(){
+		IntershopArtifacts a = BOExtensionFactory.createSources(ExtTypes.ORDERBO, "BlaOrderExt", "com.intershop.capi", "com.intershop.internal");
+
+		assertThat(a.getInterfaceData(), containsString("import com.intershop.component.order.capi.OrderBO;"));
+		
+		assertThat(a.getImplementationData(), containsString("import com.intershop.component.order.capi.OrderBO;"));
+		
+		assertThat(a.getImplementationData(), containsString("public class BlaOrderExtImpl extends AbstractBusinessObjectExtension<OrderBO> implements BlaOrderExt"));
+		
+		assertThat(a.getFactoryData(), containsString("public class BlaOrderExtFactory extends AbstractBusinessObjectExtensionFactory<OrderBO>"));
+		
+		assertThat(a.getComponentData(), containsString("<instance with=\"com.intershop.internal.BlaOrderExtFactory\"/>"));
 	}
 }
