@@ -11,7 +11,7 @@ plugins {
 ```
 
 #### Example build.gradle:
-    plugins {id "com.we.intershop.gradleplugin.icm-code-generator" version "1.0"}
+    plugins {id "com.ivable.intershop.gradleplugin.icm-code-generator" version "1.0"}
     apply plugin: 'java-cartridge'
     apply plugin: 'static-cartridge'
     apply plugin: 'com.intershop.gradle.cartridge-resourcelist'
