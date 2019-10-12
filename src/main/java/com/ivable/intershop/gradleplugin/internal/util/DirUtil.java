@@ -1,4 +1,4 @@
-package com.we.intershop.gradleplugin.internal.util;
+package com.ivable.intershop.gradleplugin.internal.util;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.we.intershop.gradleplugin.IntershopProjLayout;
+import com.ivable.intershop.gradleplugin.IntershopProjLayout;
 
 /**
  * Directory Util Class Collection of utils for working with dir paths in the
