@@ -19,7 +19,7 @@ dependencies {
 
 project.description     = 'Intershop code generator plugin'
 project.group           = 'com.ivable.intershop.gradleplugin'
-project.version         = '1.0'
+project.version         = '1.1'
 
 project.ext.name        = 'icm-code-generator'
 project.ext.pluginId    = 'com.ivable.intershop.gradleplugin.icm-code-generator'
