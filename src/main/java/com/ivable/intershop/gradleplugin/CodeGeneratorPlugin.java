@@ -1,4 +1,4 @@
-package com.we.intershop.gradleplugin;
+package com.ivable.intershop.gradleplugin;
 
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;

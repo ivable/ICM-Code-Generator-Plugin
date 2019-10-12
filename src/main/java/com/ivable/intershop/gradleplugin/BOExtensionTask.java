@@ -1,4 +1,4 @@
-package com.we.intershop.gradleplugin;
+package com.ivable.intershop.gradleplugin;
 
 import java.io.IOException;
 import java.util.Map;
@@ -9,9 +9,9 @@ import org.gradle.api.tasks.TaskAction;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
-import com.we.intershop.gradleplugin.internal.BOExtensionFactory;
-import com.we.intershop.gradleplugin.internal.IntershopArtifacts;
-import com.we.intershop.gradleplugin.internal.BOExtensionConstants.ExtTypes;
+import com.ivable.intershop.gradleplugin.internal.BOExtensionFactory;
+import com.ivable.intershop.gradleplugin.internal.IntershopArtifacts;
+import com.ivable.intershop.gradleplugin.internal.BOExtensionConstants.ExtTypes;
 
 /**
  * Gradle task to generate business object extensions

@@ -1,14 +1,14 @@
-package com.we.intershop.gradleplugin.internal.templating;
+package com.ivable.intershop.gradleplugin.internal.templating;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
-import com.we.intershop.gradleplugin.internal.BOExtensionConstants.ExtTypes;
-import com.we.intershop.gradleplugin.internal.BOExtensionFactory;
-import com.we.intershop.gradleplugin.internal.IntershopArtifacts;
-import com.we.intershop.gradleplugin.internal.templating.TemplatingEngine;
+import com.ivable.intershop.gradleplugin.internal.BOExtensionFactory;
+import com.ivable.intershop.gradleplugin.internal.IntershopArtifacts;
+import com.ivable.intershop.gradleplugin.internal.BOExtensionConstants.ExtTypes;
+import com.ivable.intershop.gradleplugin.internal.templating.TemplatingEngine;
 
 public class TestTemplatingEngine {
 

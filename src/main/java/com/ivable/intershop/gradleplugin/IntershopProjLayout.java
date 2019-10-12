@@ -1,10 +1,10 @@
-package com.we.intershop.gradleplugin;
+package com.ivable.intershop.gradleplugin;
 
 import java.io.IOException;
 
 import org.gradle.api.Project;
 
-import com.we.intershop.gradleplugin.internal.IntershopProjLayoutImpl;
+import com.ivable.intershop.gradleplugin.internal.IntershopProjLayoutImpl;
 
 /**
  * An Intershop project object. Understand the structure of the project and

@@ -1,6 +1,6 @@
-package com.we.intershop.gradleplugin.internal;
+package com.ivable.intershop.gradleplugin.internal;
 
-import com.we.intershop.gradleplugin.internal.templating.TemplatingEngine;
+import com.ivable.intershop.gradleplugin.internal.templating.TemplatingEngine;
 
 public final class BOExtensionFactory {
 
