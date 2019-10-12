@@ -6,12 +6,12 @@ Gradle plugin to generate code for intershop commerce management.
 Add the code generator plugin at the **top** of your `build.gradle`.
 ```
 plugins {
-  id "com.ivable.intershop.gradleplugin.icm-code-generator" version "1.0"
+  id "com.ivable.intershop.gradleplugin.icm-code-generator" version "1.1"
 }
 ```
 
 #### Example build.gradle:
-    plugins {id "com.ivable.intershop.gradleplugin.icm-code-generator" version "1.0"}
+    plugins {id "com.ivable.intershop.gradleplugin.icm-code-generator" version "1.1"}
     apply plugin: 'java-cartridge'
     apply plugin: 'static-cartridge'
     apply plugin: 'com.intershop.gradle.cartridge-resourcelist'
@@ -51,7 +51,7 @@ To use the modified plugin, add this code to the **top** of a build.gradle of a 
 
     buildscript {
         repositories { mavenLocal() }
-        dependencies { classpath "com.ivable.intershop.gradleplugin:icm-code-generator:1.0" }
+        dependencies { classpath "com.ivable.intershop.gradleplugin:icm-code-generator:1.1" }
     }
     apply plugin: "com.ivable.intershop.gradleplugin.icm-code-generator"
 
