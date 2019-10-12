@@ -1,5 +1,6 @@
 package com.ivable.intershop.gradleplugin.internal.util;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -23,7 +24,7 @@ import com.ivable.intershop.gradleplugin.IntershopProjLayout;
  */
 public final class DirUtil {
 
-	private final static String[] IGNORE_DIRS = new String[] { "bin", "build", ".gradle", "gradle", ".settings" };
+	private static final String[] IGNORE_DIRS = new String[] { "bin", "build", ".gradle", "gradle", ".settings" };
 
 	private DirUtil() {
 	}
@@ -31,16 +32,13 @@ public final class DirUtil {
 	/**
 	 * Get the first directory by given name by traversing the root path
 	 * 
-	 * @param root
-	 *            path to search for dir name
-	 * @param dirName
-	 *            name of the directory to find
+	 * @param root    path to search for dir name
+	 * @param dirName name of the directory to find
 	 * @return if found a path otherwise empty
 	 */
 	public static Optional<Path> getDirectoryByName(Path root, String dirName) {
 		try {
-			Optional<Path> rs = getDirectories(root).filter(p -> p.endsWith(dirName)).findFirst();
-			return rs;
+			return getDirectories(root).filter(p -> p.endsWith(dirName)).findFirst();
 		} catch (IOException e) {
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 		}
@@ -48,11 +46,10 @@ public final class DirUtil {
 	}
 
 	/**
-	 * Walk through all directory structure, filter out non-dir and ignore dir
-	 * in the ignore list
+	 * Walk through all directory structure, filter out non-dir and ignore dir in
+	 * the ignore list
 	 * 
-	 * @param path
-	 *            path to traverse
+	 * @param path path to traverse
 	 * @return stream of Paths that remain after filter
 	 * @throws IOException
 	 */
@@ -82,30 +79,42 @@ public final class DirUtil {
 	}
 
 	/**
-	 * Return package name from the root to the target Path
+	 * package name from the root to the target Path
 	 * 
-	 * @param packageRoot
-	 *            root where it starts
-	 * @param packageFolder
-	 *            until the target
+	 * @param packageRoot   root where it starts
+	 * @param packageFolder until the target
 	 * @return package name as String
 	 */
 	public static String getJavaPackageName(Path packageRoot, Path packageFolder) {
+		return getJavaPackageName(packageRoot, packageFolder, File.separator);
+	}
+
+	/**
+	 * package name from the root to the target Path
+	 * 
+	 * @param packageRoot   root where it starts
+	 * @param packageFolder until the target
+	 * @param separator     file separator
+	 * @return package name as String
+	 */
+	public static String getJavaPackageName(Path packageRoot, Path packageFolder, String separator) {
 		String diff = StringUtils.difference(packageRoot.toString(), packageFolder.toString());
 
 		// remove seperators at the start
-		if (diff.startsWith(java.io.File.separator)) {
+		if (diff.startsWith(separator)) {
 			diff = diff.substring(1, diff.length());
 		}
+		if (diff.endsWith(separator)) {
+			diff = diff.substring(0, diff.length() - 1);
+		}
 
-		return diff.replaceAll(java.io.File.separator, ".");
+		return diff.replaceAll("\\" + separator, ".");
 	}
 
 	/**
 	 * Create dir
 	 * 
-	 * @param path
-	 *            path to create
+	 * @param path path to create
 	 * @return created Path
 	 */
 	public static Path createDir(Path path) {

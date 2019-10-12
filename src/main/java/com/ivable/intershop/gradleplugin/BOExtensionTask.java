@@ -1,17 +1,17 @@
 package com.ivable.intershop.gradleplugin;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.gradle.api.DefaultTask;
 import org.gradle.api.tasks.TaskAction;
 
-import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
+import com.ivable.intershop.gradleplugin.internal.BOExtensionConstants.ExtTypes;
 import com.ivable.intershop.gradleplugin.internal.BOExtensionFactory;
 import com.ivable.intershop.gradleplugin.internal.IntershopArtifacts;
-import com.ivable.intershop.gradleplugin.internal.BOExtensionConstants.ExtTypes;
 
 /**
  * Gradle task to generate business object extensions
@@ -28,7 +28,7 @@ public class BOExtensionTask extends DefaultTask {
 		String extName = (String) this.getProject().getProperties().get("extname");
 
 		if (StringUtils.isBlank(extName)) {
-			String helpmsg = Resources.toString(Resources.getResource("HelpMsg.txt"), Charsets.UTF_8);
+			String helpmsg = Resources.toString(Resources.getResource("HelpMsg.txt"), StandardCharsets.UTF_8);
 			System.out.println(helpmsg);
 			return;
 		}

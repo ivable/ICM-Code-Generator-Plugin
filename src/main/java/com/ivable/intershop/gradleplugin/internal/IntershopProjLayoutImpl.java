@@ -49,7 +49,7 @@ public final class IntershopProjLayoutImpl implements IntershopProjLayout {
 		rootPath = FileSystems.getDefault().getPath(project.getProjectDir().getAbsolutePath());
 
 		// set java path
-		this.javaSrcPath = getJavaSrcPath(project, javaplugin);
+		this.javaSrcPath = getJavaSrcPath(javaplugin);
 
 		// set capi path
 		this.capi = getPath(javaSrcPath, "capi");
@@ -82,13 +82,11 @@ public final class IntershopProjLayoutImpl implements IntershopProjLayout {
 	/**
 	 * Get the java src directory
 	 * 
-	 * @param project
-	 *            gradle project
 	 * @param javaplugin
 	 *            gradle java plugin
 	 * @return src dir for java
 	 */
-	private Path getJavaSrcPath(Project project, JavaPluginConvention javaplugin) {
+	private Path getJavaSrcPath(JavaPluginConvention javaplugin) {
 		// find the main source set
 		SourceSet mainSrc = javaplugin.getSourceSets().getByName(SRC_MAIN);
 		if (mainSrc == null) {
@@ -97,7 +95,7 @@ public final class IntershopProjLayoutImpl implements IntershopProjLayout {
 		}
 
 		// get the first (existing) src dir
-		Optional<File> srcDir = mainSrc.getJava().getSrcDirs().stream().filter(s -> s.exists()).findFirst();
+		Optional<File> srcDir = mainSrc.getJava().getSrcDirs().stream().filter(File::exists).findFirst();
 		if (!srcDir.isPresent()) {
 			throw new IllegalStateException("cant find existing java src dir");
 		}

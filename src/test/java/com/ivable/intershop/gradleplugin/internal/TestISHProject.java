@@ -63,6 +63,16 @@ public class TestISHProject {
 
 		assertEquals("com.something.bla", javaPackageName);
 	}
+	
+	@Test
+	public void testGetPackageNameWindowsSeperator() throws IOException {
+		Path root = Paths.get("c:\\proj\\src\\");
+		Path javadir = Paths.get("c:\\proj\\src\\com\\something\\bla\\");
+		
+		String javaPackageName = DirUtil.getJavaPackageName(root, javadir,"\\");
+
+		assertEquals("com.something.bla", javaPackageName);
+	}
 
 	@Test
 	public void testArtifacts() {

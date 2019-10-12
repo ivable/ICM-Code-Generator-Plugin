@@ -3,6 +3,18 @@ package com.ivable.intershop.gradleplugin.internal;
 import com.ivable.intershop.gradleplugin.internal.templating.TemplatingEngine;
 
 public final class BOExtensionFactory {
+	
+	private static final String ORDERBO_CLASS = "OrderBO";
+	private static final String ICM_ORDER_CAPI = "com.intershop.component.order.capi";
+	private static final String ICM_BASKET_CAPI = "com.intershop.component.basket.capi";
+	private static final String CATEGORYBO_CLASS = "CatalogCategoryBO";
+	private static final String ICM_CATALOG_CAPI = "com.intershop.component.catalog.capi";
+	private static final String PRODUCTBO_CLASS = "ProductBO";
+	private static final String ICM_PROD_CAPI = "com.intershop.component.product.capi";
+
+	private BOExtensionFactory() {
+		throw new IllegalStateException("Utility class");
+	}
 
 	private static final String POSTFIX_FACTORY = "Factory";
 	private static final String POSTFIX_IMPL = "Impl";
@@ -40,16 +52,16 @@ public final class BOExtensionFactory {
 		String comp = TemplatingEngine.createComponent(factoryName, internalPK);
 
 		// interface
-		String inter = TemplatingEngine.createInterface(extName, capiPK, "ProductBO",
-				"com.intershop.component.product.capi");
+		String inter = TemplatingEngine.createInterface(extName, capiPK, PRODUCTBO_CLASS,
+				ICM_PROD_CAPI);
 
 		// factory
-		String factory = TemplatingEngine.createFactory(factoryName, internalPK, implName, "ProductBO",
-				"com.intershop.component.product.capi", extName, capiPK);
+		String factory = TemplatingEngine.createFactory(factoryName, internalPK, implName, PRODUCTBO_CLASS,
+				ICM_PROD_CAPI, extName, capiPK);
 
 		// Implementation
 		String impl = TemplatingEngine.createExtImplementation(internalPK,
-				"com.intershop.component.product.capi", "ProductBO", capiPK, extName, implName);
+				ICM_PROD_CAPI, PRODUCTBO_CLASS, capiPK, extName, implName);
 
 		// return artifacts
 		return new IntershopArtifacts(inter, impl, factory, comp, extName, implName, factoryName, extName);
@@ -64,13 +76,13 @@ public final class BOExtensionFactory {
 		String comp = TemplatingEngine.createComponent(factoryName, internalPK);
 
 		// interface
-		String inter = TemplatingEngine.createInterface(extName, capiPK, "CatalogCategoryBO","com.intershop.component.catalog.capi");
+		String inter = TemplatingEngine.createInterface(extName, capiPK, CATEGORYBO_CLASS,ICM_CATALOG_CAPI);
 
 		// factory
-		String factory = TemplatingEngine.createFactory(factoryName, internalPK, implName, "CatalogCategoryBO","com.intershop.component.catalog.capi", extName, capiPK);
+		String factory = TemplatingEngine.createFactory(factoryName, internalPK, implName, CATEGORYBO_CLASS,ICM_CATALOG_CAPI, extName, capiPK);
 
 		// Implementation
-		String impl = TemplatingEngine.createExtImplementation(internalPK,"com.intershop.component.catalog.capi", "CatalogCategoryBO", capiPK, extName, implName);
+		String impl = TemplatingEngine.createExtImplementation(internalPK,ICM_CATALOG_CAPI, CATEGORYBO_CLASS, capiPK, extName, implName);
 
 		// return artifacts
 		return new IntershopArtifacts(inter, impl, factory, comp, extName, implName, factoryName, extName);
@@ -81,7 +93,7 @@ public final class BOExtensionFactory {
 		String factoryName = getFactoryName(extName);
 		String implName = getImplementationName(extName);
 		String bo = "BasketBO";
-		String bopackage = "com.intershop.component.basket.capi";
+		String bopackage = ICM_BASKET_CAPI;
 
 		// component
 		String comp = TemplatingEngine.createComponent(factoryName, internalPK);
@@ -103,8 +115,8 @@ public final class BOExtensionFactory {
 		// postfix
 		String factoryName = getFactoryName(extName);
 		String implName = getImplementationName(extName);
-		String bo = "OrderBO";
-		String bopackage = "com.intershop.component.order.capi";
+		String bo = ORDERBO_CLASS;
+		String bopackage = ICM_ORDER_CAPI;
 
 		// component
 		String comp = TemplatingEngine.createComponent(factoryName, internalPK);
