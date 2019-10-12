@@ -1,4 +1,4 @@
-package com.we.intershop.gradleplugin.internal.templating;
+package com.ivable.intershop.gradleplugin.internal.templating;
 
 import org.jtwig.JtwigModel;
 import org.jtwig.JtwigTemplate;

@@ -1,4 +1,4 @@
-package com.we.intershop.gradleplugin.internal;
+package com.ivable.intershop.gradleplugin.internal;
 
 public class IntershopArtifacts {
 	private String interfaceData;

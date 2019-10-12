@@ -1,4 +1,4 @@
-package com.we.intershop.gradleplugin.internal;
+package com.ivable.intershop.gradleplugin.internal;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,8 +17,8 @@ import org.gradle.api.plugins.JavaPluginConvention;
 import org.gradle.api.tasks.SourceSet;
 import org.gradle.internal.impldep.org.eclipse.jgit.errors.NotSupportedException;
 
-import com.we.intershop.gradleplugin.IntershopProjLayout;
-import com.we.intershop.gradleplugin.internal.util.DirUtil;
+import com.ivable.intershop.gradleplugin.IntershopProjLayout;
+import com.ivable.intershop.gradleplugin.internal.util.DirUtil;
 
 /**
  * Implemantation of IntershopProjLayout
