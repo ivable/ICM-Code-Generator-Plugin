@@ -6,7 +6,7 @@ Gradle plugin to generate code for intershop commerce management.
 Add the code generator plugin at the **top** of your `build.gradle`.
 ```
 plugins {
-  id "com.we.intershop.gradleplugin.icm-code-generator" version "1.0"
+  id "com.ivable.intershop.gradleplugin.icm-code-generator" version "1.0"
 }
 ```
 
